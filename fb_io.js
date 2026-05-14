@@ -17,6 +17,7 @@ function fb_handleLogin(_user) {
         console.log("User has logged in")
         GLOBAL_user = _user;
         console.log(GLOBAL_user)
+        showLoggedIn();
     } else {
         console.log("User is NOT logged in - Starting popup process")
         fb_popupLogin();
@@ -29,6 +30,7 @@ function fb_popupLogin() {
     firebase.auth().signInWithPopup(provider).then((result) => {
         GLOBAL_user = result.user;
         console.log("User has logged in")
+        showLoggedIn();
     });
 }
 
